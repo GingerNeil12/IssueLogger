@@ -35,8 +35,11 @@ jobs:
         with:
           dotnet-version: ${{ matrix.dotnet-version }}
       - name: Install Dependencies
+        working-directory: src/IssueLogger
         run: dotnet restore
       - name: Build
+        working-directory: src/IssueLogger
         run: dotnet build --configuration Release --no-restore
       - name: Test
+        working-directory: src/IssueLogger
         run: dotnet test --no-restore --verbosity normal
