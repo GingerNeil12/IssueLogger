@@ -59,7 +59,7 @@ namespace IssueLogger.Domain.Tests.TestTests
             var code = "Code";
             var name = "Name";
 
-            yield return new object[] { nameof(code), code, name, $"{Resources.PropertyNullOrBlank} (Parameter '{nameof(code)}')" };
+            yield return new object[] { nameof(code), string.Empty, name, $"{Resources.PropertyNullOrBlank} (Parameter '{nameof(code)}')" };
             yield return new object[] { nameof(code), null, name, $"{Resources.PropertyNullOrBlank} (Parameter '{nameof(code)}')" };
             yield return new object[] { nameof(name), code, string.Empty, $"{Resources.PropertyNullOrBlank} (Parameter '{nameof(name)}')" };
             yield return new object[] { nameof(name), code, null, $"{Resources.PropertyNullOrBlank} (Parameter '{nameof(name)}')" };
