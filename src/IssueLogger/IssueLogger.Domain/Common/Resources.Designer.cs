@@ -61,6 +61,15 @@ namespace IssueLogger.Domain.Common {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Required input {0} was empty..
+        /// </summary>
+        public static string ValueCannotBeEmpty {
+            get {
+                return ResourceManager.GetString("ValueCannotBeEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Value cannot be null..
         /// </summary>
         public static string ValueCannotBeNull {

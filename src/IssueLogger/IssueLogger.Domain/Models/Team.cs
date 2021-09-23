@@ -18,8 +18,8 @@ namespace IssueLogger.Domain.Models
         public Team(Guid id, string code, string name)
         {
             Id = id;
-            Code = Guard.Against.NullOrWhiteSpace(code, nameof(code), Resources.ValueCannotBeNull);
-            Name = Guard.Against.NullOrWhiteSpace(name, nameof(name), Resources.ValueCannotBeNull);
+            Code = Guard.Against.NullOrWhiteSpace(code, nameof(code));
+            Name = Guard.Against.NullOrWhiteSpace(name, nameof(name));
             _normalizedCode = code.Normalize();
             _normalizedName = name.Normalize();
         }
