@@ -1,4 +1,5 @@
 ﻿using System;
+using Ardalis.GuardClauses;
 using IssueLogger.Domain.Common;
 
 namespace IssueLogger.Domain.Models
@@ -16,19 +17,9 @@ namespace IssueLogger.Domain.Models
 
         public Team(Guid id, string code, string name)
         {
-            if (string.IsNullOrWhiteSpace(code))
-            {
-                throw new ArgumentNullException(nameof(code), Resources.PropertyNullOrBlank);
-            }
-
-            if (string.IsNullOrWhiteSpace(name))
-            {
-                throw new ArgumentNullException(nameof(name), Resources.PropertyNullOrBlank);
-            }
-
             Id = id;
-            Code = code;
-            Name = name;
+            Code = Guard.Against.NullOrWhiteSpace(code, nameof(code), Resources.ValueCannotBeNull);
+            Name = Guard.Against.NullOrWhiteSpace(name, nameof(name), Resources.ValueCannotBeNull);
             _normalizedCode = code.Normalize();
             _normalizedName = name.Normalize();
         }
@@ -37,7 +28,7 @@ namespace IssueLogger.Domain.Models
         {
             if (string.IsNullOrWhiteSpace(newCode))
             {
-                throw new ArgumentNullException(nameof(newCode), Resources.PropertyNullOrBlank);
+                throw new ArgumentNullException(nameof(newCode), Resources.ValueCannotBeNull);
             }
 
             Code = newCode;
@@ -48,7 +39,7 @@ namespace IssueLogger.Domain.Models
         {
             if (string.IsNullOrWhiteSpace(newName))
             {
-                throw new ArgumentNullException(nameof(newName), Resources.PropertyNullOrBlank);
+                throw new ArgumentNullException(nameof(newName), Resources.ValueCannotBeNull);
             }
 
             Name = newName;

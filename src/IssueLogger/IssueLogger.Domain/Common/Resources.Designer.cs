@@ -61,11 +61,11 @@ namespace IssueLogger.Domain.Common {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Property cannot be null or blank..
+        ///   Looks up a localized string similar to Value cannot be null..
         /// </summary>
-        public static string PropertyNullOrBlank {
+        public static string ValueCannotBeNull {
             get {
-                return ResourceManager.GetString("PropertyNullOrBlank", resourceCulture);
+                return ResourceManager.GetString("ValueCannotBeNull", resourceCulture);
             }
         }
     }
