@@ -4,7 +4,7 @@ using IssueLogger.Domain.Common;
 
 namespace IssueLogger.Domain.Models
 {
-    public class Team : AuditableEntity
+    public partial class Team : AuditableEntity
     {
         private string _normalizedCode;
         private string _normalizedName;
@@ -22,28 +22,6 @@ namespace IssueLogger.Domain.Models
             Name = Guard.Against.NullOrWhiteSpace(name, nameof(name), Resources.ValueCannotBeNull);
             _normalizedCode = code.Normalize();
             _normalizedName = name.Normalize();
-        }
-
-        public void ChangeCode(string newCode)
-        {
-            if (string.IsNullOrWhiteSpace(newCode))
-            {
-                throw new ArgumentNullException(nameof(newCode), Resources.ValueCannotBeNull);
-            }
-
-            Code = newCode;
-            _normalizedCode = newCode.Normalize();
-        }
-
-        public void ChangeName(string newName)
-        {
-            if (string.IsNullOrWhiteSpace(newName))
-            {
-                throw new ArgumentNullException(nameof(newName), Resources.ValueCannotBeNull);
-            }
-
-            Name = newName;
-            _normalizedName = newName.Normalize();
         }
     }
 }
