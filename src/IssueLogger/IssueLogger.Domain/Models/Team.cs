@@ -11,6 +11,7 @@ namespace IssueLogger.Domain.Models
         private string _normalizedName;
 
         private List<Member> _members = new();
+        private List<MemberRole> _memberRoles = new();
 
         public Guid Id { get; private set; }
         public string Code { get; private set; }
@@ -19,6 +20,7 @@ namespace IssueLogger.Domain.Models
         public string NormalizedName => _normalizedName;
 
         public virtual IReadOnlyList<Member> Members => _members.AsReadOnly();
+        public virtual IReadOnlyList<MemberRole> MemberRoles => _memberRoles.AsReadOnly();
 
         public Team(Guid id, string code, string name)
         {
