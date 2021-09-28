@@ -25,6 +25,22 @@ namespace IssueLogger.Domain.Tests.MemberTests
             memberUnderTest.BlockedStatus.BlockedOn.Should().BeOnOrBefore(DateTime.Now);
         }
 
+        [TestMethod]
+        public void WhenUnblockIsCalled_ThenTheirBlockedStatusShouldStillBeUnblocked()
+        {
+            // Arrange
+            var memberUnderTest = CreateMember();
+
+            // Act
+            memberUnderTest.Unblock();
+
+            // Assert
+            memberUnderTest.BlockedStatus.Should().NotBeNull();
+            memberUnderTest.BlockedStatus.IsBlocked.Should().BeFalse();
+            memberUnderTest.BlockedStatus.BlockedOn.Should().Be(new DateTime());
+
+        }
+
         private static Member CreateMember()
         {
             return Member.Create("USER_ID", Guid.NewGuid());

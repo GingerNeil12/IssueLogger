@@ -8,20 +8,26 @@ namespace IssueLogger.Domain.Models
     {
         public void Block()
         {
-            BlockedStatus = new BlockedStatus
+            if(!BlockedStatus.IsBlocked)
             {
-                IsBlocked = true,
-                BlockedOn = DateTime.Now
-            };
+                BlockedStatus = new BlockedStatus
+                {
+                    IsBlocked = true,
+                    BlockedOn = DateTime.Now
+                };
+            }
         }
 
         public void Unblock()
         {
-            BlockedStatus = new BlockedStatus
+            if (BlockedStatus.IsBlocked)
             {
-                IsBlocked = false,
-                BlockedOn = new DateTime()
-            };
+                BlockedStatus = new BlockedStatus
+                {
+                    IsBlocked = false,
+                    BlockedOn = new DateTime()
+                };
+            }
         }
 
         public void AddRole(string roleId)
