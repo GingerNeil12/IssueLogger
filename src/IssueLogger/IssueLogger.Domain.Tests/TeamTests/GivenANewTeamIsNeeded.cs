@@ -6,7 +6,7 @@ using IssueLogger.Domain.Models;
 using IssueLogger.Testing;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace IssueLogger.Domain.Tests.TestTests
+namespace IssueLogger.Domain.Tests.TeamTests
 {
     [TestClass]
     [TestCategory(TestCategories.Unit)]
