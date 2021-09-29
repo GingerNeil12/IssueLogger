@@ -41,5 +41,28 @@ namespace IssueLogger.Domain.Models
                 member.Unblock();
             }
         }
+
+        public void InviteMember
+        (
+            string invitedUserId,
+            string invitedByUserId,
+            string inviteCode
+        )
+        {
+            var invite = _invitations
+                .Where
+                (
+                    invite =>
+                        invite.InvitedUserId == invitedUserId ||
+                        invite.InviteCode == inviteCode
+                )
+                .FirstOrDefault();
+
+            if (invite is null)
+            {
+                invite = TeamMemberInvitation.Create(Id, invitedUserId, invitedByUserId, inviteCode);
+                _invitations.Add(invite);
+            }
+        }
     }
 }
