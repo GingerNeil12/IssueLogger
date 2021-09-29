@@ -22,7 +22,8 @@ namespace IssueLogger.Domain.Models
 
         public void Revoke()
         {
-            if (Status == TeamMemberInvitationStatus.Pending)
+            if (Status == TeamMemberInvitationStatus.Pending ||
+                Status == TeamMemberInvitationStatus.Declined)
             {
                 Status = TeamMemberInvitationStatus.Revoked;
             }
