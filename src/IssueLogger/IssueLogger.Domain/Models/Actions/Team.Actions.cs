@@ -42,6 +42,11 @@ namespace IssueLogger.Domain.Models
             }
         }
 
+        public bool IsInviteCodeInUse(string inviteCode)
+        {
+            return _invitations.Where(invite => invite.InviteCode == inviteCode).Any();
+        }
+
         public void InviteMember
         (
             string invitedUserId,
