@@ -9,7 +9,6 @@ namespace IssueLogger.Domain.Models
     {
         private Team _team;
         private List<MemberRole> _roles = new();
-        private List<TeamMemberInvitation> _invitationsSent = new();
 
         public string UserId { get; private set; }
         public Guid TeamId { get; private set; }
@@ -18,7 +17,6 @@ namespace IssueLogger.Domain.Models
 
         public virtual Team Team => _team;
         public virtual IReadOnlyList<MemberRole> Roles => _roles.AsReadOnly();
-        public virtual IReadOnlyList<TeamMemberInvitation> InvitationsSent => _invitationsSent.AsReadOnly();
 
         private Member(string userId, Guid teamId, DateTime joinedOn)
         {
