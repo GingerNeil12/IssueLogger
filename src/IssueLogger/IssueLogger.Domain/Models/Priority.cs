@@ -24,6 +24,7 @@ namespace IssueLogger.Domain.Models
             TeamId = teamId;
             Name = Guard.Against.NullOrWhiteSpace(name, nameof(name));
             Colour = Guard.Against.NullOrWhiteSpace(colour, nameof(colour));
+            _normalizedName = name.Normalize();
         }
     }
 }
