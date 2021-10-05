@@ -4,7 +4,7 @@ using System;
 
 namespace IssueLogger.Domain.Models
 {
-    public class Priority : AuditableEntity
+    public partial class Priority : AuditableEntity
     {
         private string _normalizedName;
         private Team _team;
