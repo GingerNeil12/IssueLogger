@@ -13,6 +13,7 @@ namespace IssueLogger.Domain.Models
         private List<Member> _members = new();
         private List<MemberRole> _memberRoles = new();
         private List<TeamMemberInvitation> _invitations = new();
+        private List<Priority> _priorities = new();
 
         public Guid Id { get; private set; }
         public string Code { get; private set; }
@@ -23,6 +24,7 @@ namespace IssueLogger.Domain.Models
         public virtual IReadOnlyList<Member> Members => _members.AsReadOnly();
         public virtual IReadOnlyList<MemberRole> MemberRoles => _memberRoles.AsReadOnly();
         public virtual IReadOnlyList<TeamMemberInvitation> Invitations => _invitations.AsReadOnly();
+        public virtual IReadOnlyList<Priority> Priorities => _priorities.AsReadOnly();
 
         public Team(Guid id, string code, string name)
         {
